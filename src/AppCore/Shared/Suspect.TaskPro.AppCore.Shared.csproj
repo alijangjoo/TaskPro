@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Fx\src\AppCore\Shared\OysterFx.AppCore.Shared.csproj" />
+    <ProjectReference Include="..\Domain\Suspect.TaskPro.AppCore.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="OtpCodeContracts\OtpCodes\Queries\" />
+    <Folder Include="TaskContracts\CheckLists\Queries\" />
+    <Folder Include="TaskContracts\Costs\Queries\" />
+    <Folder Include="TaskContracts\LogWorks\Queris\" />
+    <Folder Include="WrapperContracts\WrapperKpis\Commands\" />
+    <Folder Include="WrapperContracts\WrapperKpis\Queries\" />
+  </ItemGroup>
+
+</Project>

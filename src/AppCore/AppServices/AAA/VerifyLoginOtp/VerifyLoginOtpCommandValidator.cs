@@ -1,0 +1,11 @@
+﻿namespace Suspect.TaskPro.AppCore.AppServices.AAA.VerifyLoginOtp;
+
+using FluentValidation;
+using Suspect.TaskPro.AppCore.Shared.AAA.Commands.VerifyLoginOtp;
+
+public class VerifyLoginOtpCommandValidator : AbstractValidator<VerifyLoginOtpCommand>
+{
+    public VerifyLoginOtpCommandValidator()
+    {
+    }
+}

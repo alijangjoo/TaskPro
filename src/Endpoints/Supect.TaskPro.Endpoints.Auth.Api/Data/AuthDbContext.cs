@@ -1,0 +1,11 @@
+﻿namespace Supect.TaskPro.Endpoints.Auth.Api.Data;
+
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+
+public class AuthDbContext : IdentityDbContext<AppUser>
+{
+    public AuthDbContext(DbContextOptions<AuthDbContext> options) : base(options)
+    {
+    }
+}

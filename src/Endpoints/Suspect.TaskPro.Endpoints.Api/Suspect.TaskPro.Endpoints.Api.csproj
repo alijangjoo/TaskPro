@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="9.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="9.0.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+    <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="7.2.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.3" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Fx\src\Endpoints\OysterFx.Endpoints.Api\OysterFx.Endpoints.Api.csproj" />
+    <ProjectReference Include="..\..\..\Fx\src\Infra\Auth\OysterFx.Infra.Auth.JwtServices\OysterFx.Infra.Auth.JwtServices.csproj" />
+    <ProjectReference Include="..\..\AppCore\AppServices\Suspect.TaskPro.AppCore.AppServices.csproj" />
+    <ProjectReference Include="..\..\AppCore\DomainServices\Suspect.TaskPro.AppCore.DomainServices.csproj" />
+    <ProjectReference Include="..\..\AppCore\Domain\Suspect.TaskPro.AppCore.Domain.csproj" />
+    <ProjectReference Include="..\..\AppCore\Shared\Suspect.TaskPro.AppCore.Shared.csproj" />
+    <ProjectReference Include="..\..\Infra\InternalServices\Supect.TaskPro.Infra.InternalServices.UserApiCaller\Supect.TaskPro.Infra.InternalServices.UserApiCaller.csproj" />
+    <ProjectReference Include="..\..\Infra\PanelPayamak\Supect.TaskPro.Infra.PanelPayamak.KaveNegarProvider\Supect.TaskPro.Infra.PanelPayamak.KaveNegarProvider.csproj" />
+    <ProjectReference Include="..\..\Infra\Persistence\Postgres.Commands\Suspect.TaskPro.Infra.Persistence.Postgres.Commands.csproj" />
+    <ProjectReference Include="..\..\Infra\Persistence\Postgres.Queries\Suspect.TaskPro.Infra.Persistence.Postgres.Queries.csproj" />
+  </ItemGroup>
+
+</Project>

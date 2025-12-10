@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.11" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Fx\src\Infra\Persistence\RDB.Commands\OysterFx.Infra.Persistence.RDB.Commands.csproj" />
+    <ProjectReference Include="..\..\..\AppCore\Domain\Suspect.TaskPro.AppCore.Domain.csproj" />
+    <ProjectReference Include="..\..\..\AppCore\Shared\Suspect.TaskPro.AppCore.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+    <Folder Include="OtpCodes\Configs\" />
+  </ItemGroup>
+
+</Project>

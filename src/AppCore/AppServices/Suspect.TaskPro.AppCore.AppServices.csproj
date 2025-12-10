@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Fx\src\AppCore\AppServices\OysterFx.AppCore.AppServices.csproj" />
+    <ProjectReference Include="..\..\Infra\InternalServices\Supect.TaskPro.Infra.InternalServices.UserApiCaller\Supect.TaskPro.Infra.InternalServices.UserApiCaller.csproj" />
+    <ProjectReference Include="..\..\Infra\PanelPayamak\Supect.TaskPro.Infra.PanelPayamak.Abstractions\Supect.TaskPro.Infra.PanelPayamak.Abstractions.csproj" />
+    <ProjectReference Include="..\Domain\Suspect.TaskPro.AppCore.Domain.csproj" />
+    <ProjectReference Include="..\Shared\Suspect.TaskPro.AppCore.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="AAA\Commands\" />
+    <Folder Include="TaskServices\CheckLists\Queries\" />
+    <Folder Include="TaskServices\Costs\Queries\" />
+    <Folder Include="TaskServices\Estimates\Queries\" />
+    <Folder Include="TaskServices\LogWorks\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.11" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.15.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.15.0" />
+  </ItemGroup>
+
+</Project>

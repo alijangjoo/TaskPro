@@ -1,0 +1,44 @@
+﻿namespace Suspect.TaskPro.AppCore.AppServices.AAA.LoginByOtp;
+
+using OysterFx.AppCore.AppServices.Commands;
+using OysterFx.AppCore.Shared.Commands.Common;
+using Supect.TaskPro.Infra.PanelPayamak.Abstractions;
+using Suspect.TaskPro.AppCore.Shared.AAA.Commands.LoginByOtp;
+using Suspect.TaskPro.AppCore.Shared.OtpCodeContracts.OtpCodes.DomainServices;
+using System;
+using System.Threading.Tasks;
+
+public class LoginByOtpCommandHandler : CommandHandler<LoginByOtpCommand, LoginByOtpCommandResult?>
+{
+    private readonly IPayamakSender _payamakSender;
+    private readonly IOtpGeneratorDomainService _otpGeneratorDomainService;
+
+    public LoginByOtpCommandHandler(
+        IPayamakSender payamakSender,
+        IOtpGeneratorDomainService otpGeneratorDomainService)
+    {
+        _payamakSender = payamakSender;
+        _otpGeneratorDomainService = otpGeneratorDomainService;
+    }
+
+    public override async Task<CommandResult<LoginByOtpCommandResult?>> Handle(LoginByOtpCommand command)
+    {
+        CommandResult<LoginByOtpCommandResult?> commandResult = CommandResult<LoginByOtpCommandResult?>.Default();
+
+        var code = await _otpGeneratorDomainService.ExecuteAsync(command.MobileNumber!);
+
+        var sendResult = await _payamakSender.ExecuteAsync(new()
+        {
+            Message = $"{code}",
+            Receptor = command.MobileNumber
+        });
+
+        commandResult = CommandResult<LoginByOtpCommandResult?>.Success(new()
+        {
+            OtpSended = true,
+            ExpirationTime = TimeSpan.FromSeconds(120)
+        });
+
+        return commandResult;
+    }
+}
