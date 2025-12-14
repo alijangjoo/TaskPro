@@ -33,11 +33,22 @@ public class LoginByOtpCommandHandler : CommandHandler<LoginByOtpCommand, LoginB
             Receptor = command.MobileNumber
         });
 
-        commandResult = CommandResult<LoginByOtpCommandResult?>.Success(new()
+        if (sendResult.IsSuccess)
         {
-            OtpSended = true,
-            ExpirationTime = TimeSpan.FromSeconds(120)
-        });
+            commandResult = CommandResult<LoginByOtpCommandResult?>.Success(new()
+            {
+                OtpSended = true,
+                ExpirationTime = TimeSpan.FromSeconds(120)
+            });
+        }
+        else
+        {
+            commandResult = CommandResult<LoginByOtpCommandResult?>.Failure("خطا در ارسال کد", new()
+            {
+                OtpSended = false
+            });
+        }
+
 
         return commandResult;
     }

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 	ProjectSection(SolutionItems) = preProject
-		Directory.Packages.props = Directory.Packages.props
+		src\Directory.Packages.props = src\Directory.Packages.props
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppCore", "AppCore", "{FC167EAB-68AE-4B63-9E9A-5B80B885CF71}"
@@ -81,6 +81,17 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OysterFx.Infra.ServiceCom.ResutfulApi.Caller", "Fx\src\Infra\ServiceCom\OysterFx.Infra.ServiceCom.ResutfulApi.Caller\OysterFx.Infra.ServiceCom.ResutfulApi.Caller.csproj", "{6B5A7288-0C6A-49D4-AF07-65B66A56865B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OysterFx.Infra.Auth.JwtServices", "Fx\src\Infra\Auth\OysterFx.Infra.Auth.JwtServices\OysterFx.Infra.Auth.JwtServices.csproj", "{197F784A-2E89-40FC-8A7C-2ED1B153B245}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{4F329370-C163-4A4E-B726-23C0E3EFFB2C}"
+	ProjectSection(SolutionItems) = preProject
+		src\Directory.Packages.props = src\Directory.Packages.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppCore", "AppCore", "{EC32988F-336E-49BA-9E2F-4490BC38760F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suspect.TaskPro.AppCore.AppServices.Tests", "src\tests\AppCore\Suspect.TaskPro.AppCore.AppServices.Tests\Suspect.TaskPro.AppCore.AppServices.Tests.csproj", "{5A5391A1-C002-4588-98BE-77AD3C16EC01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suspect.TaskPro.AppCore.AppServices.IntegrationTests", "src\tests\AppCore\Suspect.TaskPro.AppCore.AppServices.IntegrationTests\Suspect.TaskPro.AppCore.AppServices.IntegrationTests.csproj", "{8DDDB84A-5CA5-47FF-B12F-12CCE412D797}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -176,6 +187,14 @@ Global
 		{197F784A-2E89-40FC-8A7C-2ED1B153B245}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{197F784A-2E89-40FC-8A7C-2ED1B153B245}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{197F784A-2E89-40FC-8A7C-2ED1B153B245}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A5391A1-C002-4588-98BE-77AD3C16EC01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A5391A1-C002-4588-98BE-77AD3C16EC01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A5391A1-C002-4588-98BE-77AD3C16EC01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A5391A1-C002-4588-98BE-77AD3C16EC01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DDDB84A-5CA5-47FF-B12F-12CCE412D797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DDDB84A-5CA5-47FF-B12F-12CCE412D797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DDDB84A-5CA5-47FF-B12F-12CCE412D797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DDDB84A-5CA5-47FF-B12F-12CCE412D797}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -217,6 +236,10 @@ Global
 		{C90BAF13-ED02-4728-A1D3-E75ABBA6A6A9} = {44CFBB3D-45B9-4B1D-AC32-1BC1ABDAB780}
 		{6B5A7288-0C6A-49D4-AF07-65B66A56865B} = {C90BAF13-ED02-4728-A1D3-E75ABBA6A6A9}
 		{197F784A-2E89-40FC-8A7C-2ED1B153B245} = {86D2D0DD-B830-4D4A-B78D-DA11F83BD51F}
+		{4F329370-C163-4A4E-B726-23C0E3EFFB2C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{EC32988F-336E-49BA-9E2F-4490BC38760F} = {4F329370-C163-4A4E-B726-23C0E3EFFB2C}
+		{5A5391A1-C002-4588-98BE-77AD3C16EC01} = {EC32988F-336E-49BA-9E2F-4490BC38760F}
+		{8DDDB84A-5CA5-47FF-B12F-12CCE412D797} = {EC32988F-336E-49BA-9E2F-4490BC38760F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34FA4568-F8FC-41C8-8BEF-0A9DF85C4E75}

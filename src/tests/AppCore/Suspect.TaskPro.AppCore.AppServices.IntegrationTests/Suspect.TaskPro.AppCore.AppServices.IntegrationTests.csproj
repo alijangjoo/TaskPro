@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.11" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+    <PackageReference Include="Moq" Version="4.20.72" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="AAA\Commands\VerifyLoginOtp\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\AppCore\AppServices\Suspect.TaskPro.AppCore.AppServices.csproj" />
+    <ProjectReference Include="..\..\..\AppCore\DomainServices\Suspect.TaskPro.AppCore.DomainServices.csproj" />
+    <ProjectReference Include="..\..\..\Infra\PanelPayamak\Supect.TaskPro.Infra.PanelPayamak.Abstractions\Supect.TaskPro.Infra.PanelPayamak.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\Infra\Persistence\Postgres.Commands\Suspect.TaskPro.Infra.Persistence.Postgres.Commands.csproj" />
+  </ItemGroup>
+
+</Project>

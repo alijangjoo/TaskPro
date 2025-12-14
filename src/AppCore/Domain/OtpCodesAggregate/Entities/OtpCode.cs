@@ -83,4 +83,9 @@ public sealed class OtpCode : AggregateRoot
         var remaining = ExpiresAt - DateTime.UtcNow;
         return remaining > TimeSpan.Zero ? remaining : TimeSpan.Zero;
     }
+
+    public bool IsExpired()
+    {
+        return Status == OtpStatus.Expired;
+    }
 }
