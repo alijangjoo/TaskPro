@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using OysterFx.Infra.Auth.UserServices;
 using Suspect.TaskPro.Infra.Persistence.Postgres.Commands;
-using System;
 
 public static class TestDbContextFactory
 {
