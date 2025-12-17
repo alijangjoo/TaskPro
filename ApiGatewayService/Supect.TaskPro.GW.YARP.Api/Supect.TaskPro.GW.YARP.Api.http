@@ -1,0 +1,6 @@
+@Supect.TaskPro.GW.YARP.Api_HostAddress = http://localhost:5118
+
+GET {{Supect.TaskPro.GW.YARP.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -11,9 +11,11 @@ public class PostgresFixture : IAsyncLifetime
             .WithUsername("postgresuser")
             .WithPassword("2wsx@WSX123")
             .Build();
+
+        Container.StartAsync();
     }
 
-    public async Task DisposeAsync() => await Container.StartAsync();
+    public async Task DisposeAsync() => await Container.StopAsync();
 
-    public async Task InitializeAsync() => await Container.StopAsync();
+    public async Task InitializeAsync() => await Container.StartAsync();
 }
