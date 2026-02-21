@@ -1,6 +1,6 @@
 ﻿namespace Suspect.TaskPro.AppCore.AppServices.IntegrationTests.AAA.Commands.LoginByOtp;
 
-using Suspect.TaskPro.AppCore.AppServices.AAA.LoginByOtp;
+using Suspect.TaskPro.AppCore.AppServices.AAA.Commands.LoginByOtp;
 using Suspect.TaskPro.AppCore.AppServices.IntegrationTests.AAA.Commands.Common;
 using Suspect.TaskPro.AppCore.DomainServices.OtpCodeServices;
 using Suspect.TaskPro.AppCore.Shared.AAA.Commands.LoginByOtp;
@@ -30,6 +30,6 @@ public class LoginByOtpCommandHandlerTests
 
         var otpInDb = appDbContext.OtpCodes.FirstOrDefault(c => c.MobileNumber == command.MobileNumber);
         Assert.NotNull(otpInDb);
-        Assert.False(otpInDb.IsExpired());        
+        Assert.False(otpInDb.IsExpired());
     }
 }

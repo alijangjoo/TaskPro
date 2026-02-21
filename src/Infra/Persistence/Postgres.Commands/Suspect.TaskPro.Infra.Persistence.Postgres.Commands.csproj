@@ -20,6 +20,7 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="OtpCodes\Configs\" />
+    <Folder Include="RefreshTokens\Confits\" />
   </ItemGroup>
 
 </Project>

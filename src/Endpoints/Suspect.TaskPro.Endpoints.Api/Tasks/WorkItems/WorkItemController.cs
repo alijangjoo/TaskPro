@@ -5,7 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using OysterFx.Endpoints.Api.Controllers;
 using Suspect.TaskPro.AppCore.Shared.TaskContracts.CheckLists.Commands.SetAlarm;
 using Suspect.TaskPro.AppCore.Shared.TaskContracts.WorkItems.Commands.ClearAlarm;
+using Suspect.TaskPro.AppCore.Shared.TaskContracts.WorkItems.Commands.DeleteWorkItem;
 using Suspect.TaskPro.AppCore.Shared.TaskContracts.WorkItems.Commands.DoneWorkItem;
+using Suspect.TaskPro.AppCore.Shared.TaskContracts.WorkItems.Commands.EditWorkItem;
 using Suspect.TaskPro.AppCore.Shared.TaskContracts.WorkItems.Queries.GetAllWorkItems;
 using Suspect.TaskPro.AppCore.Shared.Tasks.WorkItems.Commands.CreateWorkItem;
 using Suspect.TaskPro.AppCore.Shared.Tasks.WorkItems.Queries.GetWorkItemByBusinessKey;
@@ -23,6 +25,16 @@ public class WorkItemController : OysterFxController
     [HttpPost("{businessKey}/done")]
     public async Task<IActionResult> Done([FromRoute] Guid businessKey, [FromBody] Guid scheduleBusinessKey)
         => await SendCommand<DoneWorkItemCommand, bool>(DoneWorkItemCommand.CreateInstance(businessKey, scheduleBusinessKey));
+
+    [Authorize]
+    [HttpDelete("{businessKey}/delete")]
+    public async Task<IActionResult> Delete([FromRoute] Guid businessKey)
+        => await SendCommand<DeleteWorkItemCommand, bool>(new() { WorkItemBusinessKey = businessKey });
+
+    [Authorize]
+    [HttpPut]
+    public async Task<IActionResult> Edit([FromBody] EditWorkItemCommand command)
+        => await SendCommand<EditWorkItemCommand, Guid>(command);
 
     [HttpGet("{businessKey}")]
     public async Task<IActionResult> Get(Guid businessKey)

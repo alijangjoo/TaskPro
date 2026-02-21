@@ -3,12 +3,15 @@ namespace Supect.TaskPro.Endpoints.Auth.Api.Controllers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using OysterFx.Endpoints.Api.Controllers;
 using Supect.TaskPro.Endpoints.Auth.Api.Data;
 using Supect.TaskPro.Endpoints.Auth.Api.Models;
+using Suspect.TaskPro.AppCore.Shared.AAA.Commands.GenerateRefreshToken;
+using Suspect.TaskPro.AppCore.Shared.AAA.Services.Dtos;
 
 [ApiController]
 [Route("api/[controller]")]
-public class AuthController : ControllerBase
+public class AuthController : OysterFxController
 {
     private readonly UserManager<AppUser> _userManager;
 
@@ -52,4 +55,6 @@ public class AuthController : ControllerBase
 
         return Ok(new UserIdResponse(user.Id));
     }
+
+
 }

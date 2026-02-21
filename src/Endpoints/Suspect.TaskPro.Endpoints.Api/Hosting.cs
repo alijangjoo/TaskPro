@@ -63,7 +63,7 @@ public static class Hosting
         });
 
         builder.Services.AddUserServices(builder.Configuration);
-        builder.Services.AddTransient<IJwtTokenGeneratorService, JwtTokenGenerator>();
+        builder.Services.AddTransient<IJwtTokenGeneratorService, JwtTokenGeneratorService>();
         builder.Services.AddTransient<IOtpGeneratorDomainService, OtpGeneratorDomainService>();
         builder.Services.AddJwtAuthentication(configuration);
         builder.Services.AddJwtUserInfoService();

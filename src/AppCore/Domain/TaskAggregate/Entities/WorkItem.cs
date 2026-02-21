@@ -357,4 +357,38 @@ public class WorkItem : AggregateRoot
         if (log is not null)
             _workItemLogWorks.Remove(log);
     }
+
+    public void Edit(string? title, RecurrenceType recurrenceType, List<DateTime>? scheduleDates = null)
+    {
+        if (Status == WorkItemStatus.Done)
+            throw new InvalidOperationException("Cannot edit a completed work item");
+
+        if (title != null)
+            Title = title;
+
+        if (recurrenceType != RecurrenceType)
+            RecurrenceType = recurrenceType;
+
+        if (scheduleDates != null && scheduleDates.Any())
+        {
+            var futureSchedules = _schedules
+                .Where(s => s.ScheduledDate.Date >= DateTime.UtcNow.Date)
+                .ToList();
+
+            foreach (var schedule in futureSchedules)
+            {
+                if (!scheduleDates.Any(d => d.Date == schedule.ScheduledDate.Date))
+                    _schedules.Remove(schedule);
+            }
+
+            foreach (var date in scheduleDates)
+            {
+                if (date.Date < DateTime.UtcNow.Date)
+                    continue;
+
+                if (!_schedules.Any(s => s.ScheduledDate.Date == date.Date))
+                    AddSchedule(date);
+            }
+        }
+    }
 }

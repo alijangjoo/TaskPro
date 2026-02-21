@@ -34,6 +34,12 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings*.json">
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\..\..\Fx\src\AppCore\Shared\OysterFx.AppCore.Shared.csproj" />
@@ -47,6 +53,7 @@
     <ProjectReference Include="..\..\Infra\PanelPayamak\Supect.TaskPro.Infra.PanelPayamak.KaveNegarProvider\Supect.TaskPro.Infra.PanelPayamak.KaveNegarProvider.csproj" />
     <ProjectReference Include="..\..\Infra\Persistence\Postgres.Commands\Suspect.TaskPro.Infra.Persistence.Postgres.Commands.csproj" />
     <ProjectReference Include="..\..\Infra\Persistence\Postgres.Queries\Suspect.TaskPro.Infra.Persistence.Postgres.Queries.csproj" />
+    <ProjectReference Include="..\Supect.TaskPro.Endpoints.Auth.Api\Supect.TaskPro.Endpoints.Auth.Api.csproj" />
   </ItemGroup>
 
 </Project>

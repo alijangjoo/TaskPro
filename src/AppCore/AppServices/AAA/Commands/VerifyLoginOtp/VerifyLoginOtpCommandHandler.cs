@@ -1,15 +1,13 @@
-﻿namespace Suspect.TaskPro.AppCore.AppServices.AAA.VerifyLoginOtp;
+﻿namespace Suspect.TaskPro.AppCore.AppServices.AAA.Commands.VerifyLoginOtp;
 
 using OysterFx.AppCore.AppServices.Commands;
 using OysterFx.AppCore.Shared.Commands.Common;
 using Supect.TaskPro.Infra.InternalServices.UserApiCaller.Abstractions;
-using Supect.TaskPro.Infra.PanelPayamak.Abstractions;
 using Suspect.TaskPro.AppCore.Domain.OtpCodesAggregate.Enums;
 using Suspect.TaskPro.AppCore.Shared.AAA.Commands.VerifyLoginOtp;
 using Suspect.TaskPro.AppCore.Shared.AAA.Services;
+using Suspect.TaskPro.AppCore.Shared.AAA.Services.Dtos;
 using Suspect.TaskPro.AppCore.Shared.OtpCodeContracts.OtpCodes.Commands;
-using System;
-using System.Globalization;
 using System.Threading.Tasks;
 
 public class VerifyLoginOtpCommandHandler : CommandHandler<VerifyLoginOtpCommand, VerifyLoginOtpCommandResult?>
@@ -47,13 +45,14 @@ public class VerifyLoginOtpCommandHandler : CommandHandler<VerifyLoginOtpCommand
             verifyCommandResult.Message = "کد وارد شده معتبر نیست";
             return await OkAsync(verifyCommandResult);
         }
-        string jwtToken = string.Empty;
+
+        TokenResponse? tokenResponse = null;
+        string userId = string.Empty;
 
         var userResponse = await _userService.GetUserIdByMobileNumber(new()
         {
             MobileNumber = command.MobileNumber
         });
-
 
         if (userResponse is null || string.IsNullOrWhiteSpace(userResponse.UserId))
         {
@@ -61,14 +60,35 @@ public class VerifyLoginOtpCommandHandler : CommandHandler<VerifyLoginOtpCommand
             {
                 MobileNumber = command.MobileNumber
             });
-            jwtToken = await _jwtTokenGeneratorService.ExecuteAsync(command.MobileNumber, registeredUser.Success.UserId);
+
+            if (registeredUser is null || !registeredUser.IsSuccess)
+            {
+                verifyCommandResult.Verified = false;
+                verifyCommandResult.Message = "خطا در ثبت نام کاربر";
+                return await OkAsync(verifyCommandResult);
+            }
+
+            userId = registeredUser.UserId;
+            tokenResponse = await _jwtTokenGeneratorService.AccessTokenAsync(command.MobileNumber, userId);
         }
         else
         {
-            jwtToken = await _jwtTokenGeneratorService.ExecuteAsync(command.MobileNumber, userResponse.UserId!);
+            userId = userResponse.UserId!;
+            tokenResponse = await _jwtTokenGeneratorService.AccessTokenAsync(command.MobileNumber, userId);
         }
 
-        verifyCommandResult.Token = jwtToken;
+        if (tokenResponse == null)
+        {
+            verifyCommandResult.Verified = false;
+            verifyCommandResult.Message = "خطا در تولید توکن";
+            return await OkAsync(verifyCommandResult);
+        }
+
+        // به‌روزرسانی نتیجه با TokenResponse کامل
+        verifyCommandResult.Token = tokenResponse.AccessToken;
+        verifyCommandResult.RefreshToken = tokenResponse.RefreshToken;
+        verifyCommandResult.ExpiresIn = tokenResponse.ExpiresIn;
+        verifyCommandResult.UserId = userId; // اضافه کردن UserId به نتیجه
         verifyCommandResult.Verified = true;
         verifyCommandResult.Message = "لاگین با موفقیت انجام شد";
 
