@@ -1,9 +1,7 @@
 ﻿namespace Supect.TaskPro.Infra.InternalServices.UserApiCaller.Models.Queries.GetUserIdByMobileNumber;
 
-using OysterFx.Infra.ServiceCom.ResutfulApi.Caller;
-
-public class GetUserIdByMobileNumberReqeust : IApiRequest
+public class GetUserIdByMobileNumberReqeust
 {
-    public string? Path => $"api/Auth/by-mobile/{MobileNumber}";
-    public string? MobileNumber { get; set; }
+    public string MobileNumber { get; set; } = string.Empty;
+    public string Path => $"api/Auth/by-mobile/{MobileNumber}";
 }

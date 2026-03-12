@@ -5,6 +5,7 @@ using Supect.TaskPro.Infra.InternalServices.UserApiCaller.Models.Queries.GetUser
 
 public interface IUserService
 {
-    public Task<(RegisterUserResponse Success, List<string> Errors)> Register(RegisterUserRequest request, string baseUrl = "");
-    public Task<GetUserIdByMobileNumberResponse> GetUserIdByMobileNumber(GetUserIdByMobileNumberReqeust request, string baseUrl = "");
+    Task<RegisterUserResponse> Register(RegisterUserRequest request, string baseUrl = "");
+    Task<GetUserIdByMobileNumberResponse> GetUserIdByMobileNumber(GetUserIdByMobileNumberReqeust request, string baseUrl = "");
+    Task<GetUserByIdResponse> GetUserById(GetUserByIdRequest request, string baseUrl = "");
 }

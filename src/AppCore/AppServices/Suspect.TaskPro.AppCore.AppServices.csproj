@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="AAA\Commands\" />
     <Folder Include="TaskServices\CheckLists\Queries\" />
     <Folder Include="TaskServices\Costs\Queries\" />
     <Folder Include="TaskServices\Estimates\Queries\" />
@@ -24,7 +23,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Options" />
-    <PackageReference Include="Microsoft.IdentityModel.Tokens"  />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
   </ItemGroup>
 

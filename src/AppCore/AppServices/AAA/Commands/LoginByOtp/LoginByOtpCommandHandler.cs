@@ -1,4 +1,4 @@
-﻿namespace Suspect.TaskPro.AppCore.AppServices.AAA.LoginByOtp;
+﻿namespace Suspect.TaskPro.AppCore.AppServices.AAA.Commands.LoginByOtp;
 
 using OysterFx.AppCore.AppServices.Commands;
 using OysterFx.AppCore.Shared.Commands.Common;

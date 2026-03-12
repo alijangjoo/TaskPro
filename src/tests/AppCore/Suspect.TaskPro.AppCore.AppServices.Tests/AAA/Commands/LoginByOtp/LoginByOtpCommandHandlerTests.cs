@@ -3,7 +3,7 @@
 using Moq;
 using Supect.TaskPro.Infra.PanelPayamak.Abstractions;
 using Supect.TaskPro.Infra.PanelPayamak.Abstractions.Dtos;
-using Suspect.TaskPro.AppCore.AppServices.AAA.LoginByOtp;
+using Suspect.TaskPro.AppCore.AppServices.AAA.Commands.LoginByOtp;
 using Suspect.TaskPro.AppCore.Shared.AAA.Commands.LoginByOtp;
 using Suspect.TaskPro.AppCore.Shared.OtpCodeContracts.OtpCodes.DomainServices;
 

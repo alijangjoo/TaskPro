@@ -25,4 +25,13 @@
     <PackageReference Include="Swashbuckle.AspNetCore" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Fx\src\Endpoints\OysterFx.Endpoints.Api\OysterFx.Endpoints.Api.csproj" />
+    <ProjectReference Include="..\..\AppCore\AppServices\Suspect.TaskPro.AppCore.AppServices.csproj" />
+    <ProjectReference Include="..\..\AppCore\Domain\Suspect.TaskPro.AppCore.Domain.csproj" />
+    <ProjectReference Include="..\..\AppCore\Shared\Suspect.TaskPro.AppCore.Shared.csproj" />
+    <ProjectReference Include="..\..\Infra\Persistence\Postgres.Commands\Suspect.TaskPro.Infra.Persistence.Postgres.Commands.csproj" />
+    <ProjectReference Include="..\..\Infra\Persistence\Postgres.Queries\Suspect.TaskPro.Infra.Persistence.Postgres.Queries.csproj" />
+  </ItemGroup>
+
 </Project>

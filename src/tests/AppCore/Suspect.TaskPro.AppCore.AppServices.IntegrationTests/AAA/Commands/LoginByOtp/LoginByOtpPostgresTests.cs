@@ -1,6 +1,6 @@
 ﻿namespace Suspect.TaskPro.AppCore.AppServices.IntegrationTests.AAA.Commands.LoginByOtp;
 
-using Suspect.TaskPro.AppCore.AppServices.AAA.LoginByOtp;
+using Suspect.TaskPro.AppCore.AppServices.AAA.Commands.LoginByOtp;
 using Suspect.TaskPro.AppCore.AppServices.IntegrationTests.AAA.Commands.Common;
 using Suspect.TaskPro.AppCore.DomainServices.OtpCodeServices;
 using Suspect.TaskPro.AppCore.Shared.AAA.Commands.LoginByOtp;

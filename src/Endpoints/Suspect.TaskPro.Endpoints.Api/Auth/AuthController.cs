@@ -1,9 +1,14 @@
 ﻿namespace Suspect.TaskPro.Endpoints.Api.Auth;
 
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using OysterFx.Endpoints.Api.Controllers;
+using Supect.TaskPro.Endpoints.Auth.Api.Models;
+using Suspect.TaskPro.AppCore.Shared.AAA.Commands.GenerateRefreshToken;
 using Suspect.TaskPro.AppCore.Shared.AAA.Commands.LoginByOtp;
+using Suspect.TaskPro.AppCore.Shared.AAA.Commands.Logout;
 using Suspect.TaskPro.AppCore.Shared.AAA.Commands.VerifyLoginOtp;
+using Suspect.TaskPro.AppCore.Shared.AAA.Services.Dtos;
 
 [Route("api/auth")]
 [ApiController]
@@ -28,4 +33,19 @@ public class AuthController : OysterFxController
     //[Authorize]
     //public async Task<IActionResult> GetProfile()
     //    => await SendQuery<GetUserProfileQuery, GetUserProfileQueryResult?>(new GetUserProfileQuery());
+
+    [HttpPost("token/refresh")]
+    public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenRequest request)
+    {
+        var refreshTokenCommand = new GenerateRefreshTokenCommand()
+        {
+            MobileNumber = request.MobileNumber is null ? string.Empty : request.MobileNumber,
+            RefreshToken = request.RefreshToken,
+            UserId = request.UserId
+        };
+
+        var result = await SendCommand<GenerateRefreshTokenCommand, TokenResponse?>(refreshTokenCommand);
+
+        return Ok(result);
+    }
 }

@@ -2,6 +2,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using OysterFx.Infra.Persistence.RDB.Commands;
+using Suspect.TaskPro.AppCore.Domain.AAA.Entities;
 using Suspect.TaskPro.AppCore.Domain.OtpCodesAggregate.Entities;
 using Suspect.TaskPro.AppCore.Domain.ResourcesAggregate.Entities;
 using Suspect.TaskPro.AppCore.Domain.TaskAggregate.Entities;
@@ -13,6 +14,7 @@ public class AppCommandDbContext : CommandDbContext
     public DbSet<Resource> Resources { get; set; }
     public DbSet<Wrapper> Wrappers { get; set; }
     public DbSet<OtpCode> OtpCodes { get; set; }
+    public DbSet<RefreshToken> RefreshTokens { get; set; }
 
     public AppCommandDbContext(DbContextOptions<AppCommandDbContext> options) : base(options)
     {
