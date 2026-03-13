@@ -1,6 +1,7 @@
 using Suspect.TaskPro.Endpoints.Api;
 using Suspect.TaskPro.Infra.Persistence.Postgres.Commands;
 
+
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.ConfigureServices().ConfigurePipeline();
 
