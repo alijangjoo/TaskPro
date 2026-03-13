@@ -11,7 +11,6 @@ using (var scope = app.Services.CreateScope())
     {
         var context = services.GetRequiredService<AppCommandDbContext>();
         context.Database.EnsureCreated(); // Creates database and tables if they don't exist
-        // Or use: context.Database.Migrate(); // Applies any pending migrations
     }
     catch (Exception ex)
     {
